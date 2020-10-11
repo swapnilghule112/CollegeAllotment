@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>College Allotment</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
+    <style>
+        .navbar-brand {
+        float: left;
+        height: 53px;
+        padding: 25px 15px;
+        padding-top: 25px;
+        padding-right: 15px;
+        padding-bottom: 25px;
+        padding-left: 15px;
+        font-size: 25px;
+        line-height: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <center>
+            <div>
+                <nav class="navbar navbar-light bg-light">
+                    <a class="navbar-brand" href="/">
+                      <!-- <img src="" width="30" height="30" class="d-inline-block align-top" alt=""> -->
+                      Vidyalankar Allotment System
+                    </a>
+                  </nav>
+                        {% block replace %}
+                <p class="lead"></p>
+                <hr class="my-4">
+                <h3> Enter Available Seats</h3><br>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form-group row">
+                        {{ form.CMPN.errors }}
+                        <label for="CMPN" class="col-sm-2 col-form-label">CMPN</label>
+                        {{ form.CMPN }}
+                    </div>
+                    <div class="form-group row">
+                        {{ form.INFT.errors }}
+                        <label for="INFT" class="col-sm-2 col-form-label">INFT</label>
+                        {{ form.INFT }}
+                    </div>
+                    <div class="form-group row">
+                        {{ form.EXTC.errors }}
+                        <label for="EXTC" class="col-sm-2 col-form-label">EXTC</label>
+                        {{ form.EXTC }}
+                    </div>
+                    <div class="form-group row">
+                        {{ form.ETRX.errors }}
+                        <label for="ETRX" class="col-sm-2 col-form-label">ETRX</label>
+                        {{ form.ETRX }}
+                    </div>
+                    <div class="form-group row">
+                        {{ form.BIOMED.errors }}
+                        <label for="BIOMED" class="col-sm-2 col-form-label">BIOMED</label>
+                        {{ form.BIOMED }}
+                    </div>
+                    <div class="form-group row">
+                        {{ form.student_data.errors }}
+                        <label for="student_data" class="col-sm-2 col-form-label">Upload sheet</label>
+                        {{ form.student_data }}
+                    </div >
+                    <br>
+                    <br>
+                    <div class="form-group row">
+                        <input type="submit" class="btn btn-primary btn-lg" name="register" style="float: left; margin-left:8rem;">
+                    </div>
+                </form>
+            </div>
+        </center>
+        {% endblock %}
+    </body>
+</html>
